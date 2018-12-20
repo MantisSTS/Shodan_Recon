@@ -8,6 +8,17 @@ There are lots of times in a bug-bounty or a red-team pentest that you may be gi
 
 Sometimes the IP address will not directly resolve to the web app and may require a domain name. That is where this tool may come in handy, especially when there is no PTR (Reverse DNS) record.
 
+## Usage 
+
+* `pip install -r requirements.txt`
+* `python ./shodanrecon.py targets.txt`
+
+The script will write to two files: errors.txt and results.txt. 
+
+`errors.txt` will show any errors which may have occured throughout the scan.
+
+`results.txt` will be the findings from the scan.
+
 ## Want to help?
 
 Just submit a pull-request or add an issue :)
