@@ -29,8 +29,7 @@ class Recon:
                 if 'ssl' in match:
                     new = match['ssl']['cert']['subject']['CN'].encode("UTF-8")               
                     self.results += new + "\n"
-                else: 
-                    pass
+
         except Exception as e:
             print(str(e))
             f = open('errors.txt', "a+")
