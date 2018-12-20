@@ -10,6 +10,11 @@ Sometimes the IP address will not directly resolve to the web app and may requir
 
 ## Usage 
 
+You will need a Shodan API key and add it into the `shodanrecon.py` on the line:
+```
+SHODAN_API_KEY = ""
+```
+
 * `pip install -r requirements.txt`
 * `python ./shodanrecon.py targets.txt`
 
