@@ -1,0 +1,2 @@
+shodan==1.10.4
+iptools==0.6.1
