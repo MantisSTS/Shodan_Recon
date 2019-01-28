@@ -3,7 +3,6 @@ import sys
 import json
 import shodan 
 import time
-import iptools
 
 class Recon:
     api = None
@@ -15,9 +14,9 @@ class Recon:
     def do_lookup(self, ip):
         try:
             time.sleep(0.6)
-            dt = self.api.host(str(ip))
-            for match in dt['data']:
-                print(match['hostnames'], match['domains'])
+            # dt = self.api.host(str(ip))
+            dt = self.api.search("net:" + str(ip))
+            for match in dt['matches']:
                 if 'hostnames' in match:
                     for host in match['hostnames']:
                         if host != "":
@@ -43,14 +42,9 @@ class Recon:
         f = open('results.txt', 'w+')
         with open(hosts_file, 'r') as lines:        
             for line in lines:
-                if line.find('/') > -1:
-                    for ip in iptools.IpRangeList(line):
-                        print('Looking up IP: ' + str(ip))
-                        res = self.do_lookup(ip)
-                        f.write(res)
-                else :
-                    pass
-                    f.write(self.do_lookup(line))
+                print('Looking up IP: ' + str(str(line)))
+                res = self.do_lookup(str(line))
+                f.write(res)
         f.close()
         return self.results
 
